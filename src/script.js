@@ -71,7 +71,7 @@ function displayTasksTable(tasks) {
       <td>${task.completed}</td>
       <td>${task.priority}</td>
       <td>${task.tag}</td>
-      <td>${formatDate(task.saleDate)}</td>
+      <td>${formatDate(task.dueDate)}</td>
       <td>
         <button class="btn-delete" data-task-id="${task.id}">Delete</button>
       </td>
@@ -131,8 +131,9 @@ function hideMessage() {
 
 function getTaskData() {
 
-  fetchAPI(`${apiURL}/users/219204833`, 'GET')
+  fetchAPI(`${apiURL}/users/219204833/tasks`, 'GET')
     .then(data => {
+      console.log(data);
       const tasksList = mapAPIToTasks(data);
       displayTasksView(tasksList);
     });
