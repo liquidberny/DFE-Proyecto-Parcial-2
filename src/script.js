@@ -81,7 +81,7 @@ function displayTasksTable(tasks) {
 
   });
 
-  initDeleteSaleButtonHandler();
+  initDeleteTaskButtonHandler();
 }
 
 // Funcion que limpia la tabla
@@ -121,27 +121,90 @@ function showNotFoundMessage() {
 // Funcion que oculta mensaje
 function hideMessage() {
   const message = document.getElementById('message');
-
+  
   message.style.display = 'none';
 }
 
 //#endregion
 
-//region 3 consumo de la API
+//#region 3 boyones para agregar y eliminar
+
+function initAddTaskButtonsHandler() {
+
+  document.getElementById('addTask').addEventListener('click', () => {
+    openAddTaskModal()
+  });
+
+  document.getElementById('modal-background').addEventListener('click', () => {
+    closeAddTaskModal();
+  });
+
+  document.getElementById('task-form').addEventListener('submit', event => {
+    event.preventDefault();
+    processSubmitTask();
+  });
+
+}
+
+function openAddTaskModal() {
+  document.getElementById('task-form').reset();
+  document.getElementById('modal-background').style.display = 'block';
+  document.getElementById('modal').style.display = 'block';
+}
+
+
+function closeAddTaskModal() {
+  document.getElementById('task-form').reset();
+  document.getElementById('modal-background').style.display = 'none';
+  document.getElementById('modal').style.display = 'none';
+}
+
+function initDeleteTaskButtonHandler() {
+
+  document.querySelectorAll('.btn-delete').forEach(button => {
+
+    button.addEventListener('click', () => {
+
+      const taskId = button.getAttribute('data-task-id'); // Obtenemos el ID de la venta
+      deleteTask(taskId); // Llamamos a la función para eleminar la venta
+
+    });
+
+  });
+
+}
+
+//region 4 consumo de la API
 
 function getTaskData() {
 
   fetchAPI(`${apiURL}/users/219204833/tasks`, 'GET')
     .then(data => {
-      console.log(data);
       const tasksList = mapAPIToTasks(data);
       displayTasksView(tasksList);
     });
 
 }
 
-//#region 4 funcionalidad
+function deleteTask(taskId) {
 
+  const confirm = window.confirm(`¿Are you sure you want to delete task: ${taskId}?`);
+
+  if (confirm) {
+
+    fetchAPI(`${apiURL}/users/219204833/tasks/${taskId}`, 'DELETE')
+      .then(() => {
+        getTaskData();
+        window.alert("Task eliminated.");
+      });
+
+  }
+}
+//#endregion
+
+//#region 5 funcionalidad
+
+initAddTaskButtonsHandler();
 
 getTaskData();
 

@@ -210,6 +210,8 @@ table tbody tr td img {
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
 .filter-section {
