@@ -2,98 +2,104 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
-    <title>Lista de Berny</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
+  <title>Lista de Berny</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
+  <main>
 
-        <h1>To do list</h1>
-        <br>
+    <h1>To do list</h1>
+    <br>
 
-        <button id="addTask" class="btn-action">Add new task</button>
+    <button id="addTask" class="btn-action">Add new task</button>
 
-        <br>
-<br>
-        <div class="table-container">
+    <br>
+    <br>
+    <div class="table-container">
 
-            <table id="data-table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Completed</th>
-                  <th>Priority</th>
-                  <th>Tag</th>
-                  <th>Due Date</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="data-table-body">
-                <!-- Llenaremos la tabla con datos consumidos desde una api -->
-              </tbody>
-            </table>
-      
-          </div>
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Completed</th>
+            <th>Priority</th>
+            <th>Tag</th>
+            <th>Due Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="data-table-body">
+          <!-- Llenaremos la tabla con datos consumidos desde una api -->
+        </tbody>
+      </table>
 
-          <div id="message" class="message">
-            <p>The tasks query has not been conducted.</p>
-          </div>
+    </div>
 
-          <div id="modal-background" class="modal-background">
+    <div id="message" class="message">
+      <p>The tasks query has not been conducted.</p>
+    </div>
 
-          </div>
-      
-          <div id="modal" class="modal">
-      
-            <h2>NEW TASK</h2>
-      
-            <form id="task-form" class="form-section">
-      
-              <label for="customer-name-field">Cliente:</label>
-              <input type="text" id="customer-name-field" class="form-field" required>
-      
-              <label for="customer-phone-field">Teléfono del Cliente:</label>
-              <input type="tel" id="customer-phone-field" class="form-field" required>
-      
-              <label for="real-estate-field">Modelo de Casa:</label>
-              <select id="real-estate-field" class="form-field" required>
-                <!-- Llenaremos las opciones con datos consumidos desde una api -->
-              </select>
-      
-              <label for="task-price-field">Precio de Venta:</label>
-              <input type="number" id="task-price-field" class="form-field" required>
-      
-              <label for="task-date-field">Fecha de Venta:</label>
-              <input type="date" id="task-date-field" class="form-field" required>
-      
-              <label for="tasksman-field">Vendedor:</label>
-              <input type="text" id="tasksman-field" required>
-      
-              <label for="notes-field">Detalles de la Venta:</label>
-              <textarea id="notes-field" class="form-field" required></textarea>
-      
-              <button type="submit" class="btn-submit">Guardar Venta</button>
-      
-            </form>
-      
-          </div>
-    </main>
-    <script src="./shared/utils.js"></script>
-    <script src="./shared/fetch-api.js"></script>
-    <script src="script.js"></script>
+    <div id="modal-background" class="modal-background">
+
+    </div>
+
+    <div id="modal" class="modal">
+
+      <h2>NEW TASK</h2>
+
+      <form id="task-form" class="form-section">
+
+        <label for="task-title-field">Title:</label>
+        <input type="text" id="task-title-field" class="form-field" required>
+
+        <label for="description-field">Description:</label>
+        <textarea id="description-field" class="form-field" required></textarea>
+
+        <label for="completed-field">Completed:</label>
+        <select id="completed-field" class="form-field" required>
+          <option value="false">false</option>
+          <option value="true">true</option>
+        </select>
+
+        <label for="priority-field">Priority:</label>
+        <select id="priority-field" class="form-field" required>
+          <option value="alta">Alta</option>
+          <option value="media">Media</option>
+          <option value="baja">Baja</option>
+        </select>
+
+        <label for="tag-field">Tag:</label>
+        <select id="tag-field" class="form-field" required>
+          <option value="alta">Hogar</option>
+          <option value="media">Escuela</option>
+          <option value="baja">Personal</option>
+        </select>
+
+        <label for="due-date-field">Due date:</label>
+        <input type="date" id="due-date-field" class="form-field" required>
+
+        <button type="submit" class="btn-submit">Guardar Venta</button>
+
+      </form>
+
+    </div>
+  </main>
+  <script src="./shared/utils.js"></script>
+  <script src="./shared/fetch-api.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

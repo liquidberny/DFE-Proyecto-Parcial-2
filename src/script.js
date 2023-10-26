@@ -159,6 +159,27 @@ function closeAddTaskModal() {
   document.getElementById('modal').style.display = 'none';
 }
 
+function processSubmitTask() {
+  const title = document.getElementById('task-title-field').value;
+  const description = document.getElementById('description-field').value;
+  const completed = document.getElementById('completed-field').value;
+  const priority = document.getElementById('priority-field').value;
+  const tag = document.getElementById('tag-field').value;
+  const dueDate = document.getElementById('due-date-field').value;
+
+  const taskToSave = new Task(
+    null,
+    title,
+    description,
+    completed,
+    priority,
+    tag,
+    dueDate
+  );
+
+  createTask(taskToSave);
+}
+
 function initDeleteTaskButtonHandler() {
 
   document.querySelectorAll('.btn-delete').forEach(button => {
@@ -200,6 +221,18 @@ function deleteTask(taskId) {
 
   }
 }
+
+function createTask(task) {
+
+  fetchAPI(`${apiURL}/users/219204833/tasks`, 'POST', task)
+    .then(task => {
+      closeAddTaskModal();
+      getTaskData();
+      window.alert(`Venta ${task.id} creada correctamente.`);
+    });
+
+}
+//#endregion
 //#endregion
 
 //#region 5 funcionalidad
