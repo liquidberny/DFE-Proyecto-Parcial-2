@@ -323,3 +323,13 @@ button.btn-delete {
 button.btn-delete:hover {
   background-color: #fcf8f8;
 }
+
+button.btn-update {
+  background-color: white;
+  border: 2px solid #50355f;
+  color: #50355f;
+}
+
+button.btn-update:hover {
+  background-color: #b090c1;
+}

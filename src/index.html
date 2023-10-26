@@ -39,6 +39,7 @@
             <th>Tag</th>
             <th>Due Date</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="data-table-body">
@@ -58,7 +59,7 @@
 
     <div id="modal" class="modal">
 
-      <h2>NEW TASK</h2>
+      <h2 id="modal-title">NEW TASK</h2>
 
       <form id="task-form" class="form-section">
 
@@ -91,7 +92,49 @@
         <label for="due-date-field">Due date:</label>
         <input type="date" id="due-date-field" class="form-field" required>
 
-        <button type="submit" class="btn-submit">Guardar Venta</button>
+        <button type="submit" class="btn-submit" id="btn-submit">Guardar Tarea</button>
+
+      </form>
+
+    </div>
+
+    <div id="modal-update" class="modal">
+
+      <h2 id="modal-title">UPDATE TASK</h2>
+
+      <form id="update-task-form" class="form-section">
+        <input type="text" id="update-task-id" class="form-field" required style="display: none;">
+
+        <label for="update-task-title-field">Title:</label>
+        <input type="text" id="update-task-title-field" class="form-field" required>
+
+        <label for="update-description-field">Description:</label>
+        <textarea id="update-description-field" class="form-field" required></textarea>
+
+        <label for="update-completed-field">Completed:</label>
+        <select id="update-completed-field" class="form-field" required>
+          <option value="false">false</option>
+          <option value="true">true</option>
+        </select>
+
+        <label for="update-priority-field">Priority:</label>
+        <select id="update-priority-field" class="form-field" required>
+          <option value="alta">Alta</option>
+          <option value="media">Media</option>
+          <option value="baja">Baja</option>
+        </select>
+
+        <label for="update-tag-field">Tag:</label>
+        <select id="update-tag-field" class="form-field" required>
+          <option value="alta">Hogar</option>
+          <option value="media">Escuela</option>
+          <option value="baja">Personal</option>
+        </select>
+
+        <label for="update-due-date-field">Due date:</label>
+        <input type="date" id="update-due-date-field" class="form-field" required>
+
+        <button type="submit" class="btn-submit" >Actualizar Tarea</button>
 
       </form>
 
